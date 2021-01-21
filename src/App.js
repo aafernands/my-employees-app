@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import EmployeeTable from "./components/EmployeeTable";
 import SearchComponent from "./components/SearchComponent";
 import { useEffect, useState } from "react";
+import { format } from 'date-fns';
 
 function App() {
 	const [employeeList, setEmployeeList] = useState([]);
@@ -16,7 +17,7 @@ function App() {
 					response.results.map((user) => {
 						return {
 							name: user.name.first,
-							dob: user.dob.date,
+							dob: format(new Date(user.dob.date), 'MM-dd-yyyy'),
 							email: user.email,
 							picture: user.picture.thumbnail,
 							phone: user.phone,
