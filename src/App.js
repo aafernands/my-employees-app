@@ -1,6 +1,9 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import EmployeeTable from "./components/EmployeeTable";
+import SearchComponent from "./components/SearchComponent";
+
 function App() {
 	return (
 		<div className="container">
@@ -16,6 +19,9 @@ function App() {
 					out within the larger container.
 				</p>
 			</div>
+
+			<SearchComponent></SearchComponent>
+			<EmployeeTable></EmployeeTable>
 		</div>
 	);
 }
