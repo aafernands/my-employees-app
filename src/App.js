@@ -12,7 +12,17 @@ function App() {
 			.then((response) => response.json())
 			.then((response) => {
 				console.log(response);
-				setEmployeeList(response.results);
+				setEmployeeList(
+					response.results.map((user) => {
+						return {
+							name: user.name.first,
+							dob: user.dob.date,
+							email: user.email,
+							picture: user.picture.thumbnail,
+							phone: user.phone,
+						};
+					})
+				);
 			});
 	}, []);
 

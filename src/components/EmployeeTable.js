@@ -18,12 +18,12 @@ function EmployeeTable({ employees }) {
 				{employees.map((employee) => (
 					<tr>
 						<td>
-							<img src={employee.picture.thumbnail} alt="employee thumbnail" />
+							<img src={employee.picture} alt="employee thumbnail" />
 						</td>
-						<td>{employee.name.first}</td>
+						<td>{employee.name}</td>
 						<td>{employee.phone}</td>
 						<td>{employee.email}</td>
-						<td>{employee.dob.date}</td>
+						<td>{employee.dob}</td>
 					</tr>
 				))}
 			</tbody>
