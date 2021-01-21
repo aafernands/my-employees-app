@@ -9,14 +9,28 @@ import { format } from "date-fns";
 function App() {
 	const [originalList, setOriginalList] = useState([]);
 	const [employeeList, setEmployeeList] = useState([]);
+	const [sortOrder, setSortOrder] = useState("asc");
 
 	const handleSearchChange = (event) => {
-    const filterText = event.target.value;
-    const filterUser = originalList.filter(user => {
-      return user.name.toLowerCase().indexOf(filterText) > -1;
-    })
+		const filterText = event.target.value;
+		const filterUser = originalList.filter((user) => {
+			return user.name.toLowerCase().indexOf(filterText) > -1;
+		});
 
-    setEmployeeList(filterUser);
+		setEmployeeList(filterUser);
+	};
+
+	const handleSortOrderChange = () => {
+		employeeList.sort((a, b) => {
+			if (sortOrder === "asc") {
+				setSortOrder("desc");
+				return a.name.localeCompare(b.name);
+			}
+			setSortOrder("asc");
+			return b.name.localeCompare(a.name);
+		});
+
+		setEmployeeList(employeeList);
 	};
 
 	useEffect(() => {
@@ -27,7 +41,7 @@ function App() {
 
 				const userMap = response.results.map((user) => {
 					return {
-						name: user.name.first,
+						name: `${user.name.first} ${user.name.last}`,
 						dob: format(new Date(user.dob.date), "MM-dd-yyyy"),
 						email: user.email,
 						picture: user.picture.thumbnail,
@@ -58,7 +72,10 @@ function App() {
 			<SearchComponent
 				handleSearchChange={handleSearchChange}
 			></SearchComponent>
-			<EmployeeTable employees={employeeList}></EmployeeTable>
+			<EmployeeTable
+				employees={employeeList}
+				onSortChange={handleSortOrderChange}
+			></EmployeeTable>
 		</div>
 	);
 }
