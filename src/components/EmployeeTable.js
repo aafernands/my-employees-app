@@ -1,6 +1,8 @@
 import React from "react";
 
-function EmployeeTable() {
+function EmployeeTable({ employees }) {
+	console.log("******************** employee **********************");
+	console.log(employees);
 	return (
 		<table className="table">
 			<thead>
@@ -13,20 +15,17 @@ function EmployeeTable() {
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Mark</td>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-					<td>@mdo</td>
-				</tr>
-				<tr>
-					<td>Jacob</td>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-					<td>@fat</td>
-				</tr>
+				{employees.map((employee) => (
+					<tr>
+						<td>
+							<img src={employee.picture.thumbnail} alt="employee thumbnail" />
+						</td>
+						<td>{employee.name.first}</td>
+						<td>{employee.phone}</td>
+						<td>{employee.email}</td>
+						<td>{employee.dob.date}</td>
+					</tr>
+				))}
 			</tbody>
 		</table>
 	);

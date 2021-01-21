@@ -3,8 +3,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import EmployeeTable from "./components/EmployeeTable";
 import SearchComponent from "./components/SearchComponent";
+import { useEffect, useState } from "react";
 
 function App() {
+	const [employeeList, setEmployeeList] = useState([]);
+	useEffect(() => {
+		fetch("https://randomuser.me/api?results=15")
+			.then((response) => response.json())
+			.then((response) => {
+				console.log(response);
+				setEmployeeList(response.results);
+			});
+	}, []);
+
 	return (
 		<div className="container">
 			<div className="jumbotron">
@@ -21,7 +32,7 @@ function App() {
 			</div>
 
 			<SearchComponent></SearchComponent>
-			<EmployeeTable></EmployeeTable>
+			<EmployeeTable employees={employeeList}></EmployeeTable>
 		</div>
 	);
 }
