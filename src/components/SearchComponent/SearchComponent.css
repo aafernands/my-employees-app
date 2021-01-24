@@ -1,0 +1,9 @@
+form {
+    padding: 20px;
+}
+
+form .row {
+    background-color: aqua ;
+    alignItems : "center"
+
+}

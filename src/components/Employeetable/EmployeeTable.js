@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
 
+
 function EmployeeTable({ employees, onSortChange }) {
 	console.log("******************** employee **********************");
 	console.log(employees);

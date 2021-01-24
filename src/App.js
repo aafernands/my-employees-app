@@ -1,8 +1,11 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./components/Employeetable/Employeetable.css";
+import "./components/SearchComponent/SearchComponent.css";
 
-import EmployeeTable from "./components/EmployeeTable";
-import SearchComponent from "./components/SearchComponent";
+
+import EmployeeTable from "./components/Employeetable/EmployeeTable";
+import SearchComponent from "./components/SearchComponent/SearchComponent";
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
 
@@ -58,14 +61,9 @@ function App() {
 		<div className="container">
 			<div className="jumbotron">
 				<h1 className="display-4">Employee Directory</h1>
-				<p className="lead">
-					This is a simple hero unit, a simple jumbotron-style component for
-					calling extra attention to featured content or information.
-				</p>
-				<hr className="my-4" />
 				<p>
-					It uses utility classes for typography and spacing to space content
-					out within the larger container.
+					(Click on arrow icon next to name, or enter a name (or part of a name)
+					to sort the list by name order.)
 				</p>
 			</div>
 
