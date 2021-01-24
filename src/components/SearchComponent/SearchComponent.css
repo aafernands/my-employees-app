@@ -3,7 +3,6 @@ form {
 }
 
 form .row {
-    background-color: aqua ;
-    alignItems : "center"
+    align-items: "center"
 
 }

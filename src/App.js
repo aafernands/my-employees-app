@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./components/Employeetable/Employeetable.css";
 import "./components/SearchComponent/SearchComponent.css";
 
-
 import EmployeeTable from "./components/Employeetable/EmployeeTable";
 import SearchComponent from "./components/SearchComponent/SearchComponent";
 import { useEffect, useState } from "react";
@@ -37,7 +36,7 @@ function App() {
 	};
 
 	useEffect(() => {
-		fetch("https://randomuser.me/api?results=15")
+		fetch("https://randomuser.me/api?results=100")
 			.then((response) => response.json())
 			.then((response) => {
 				console.log(response);
@@ -62,8 +61,7 @@ function App() {
 			<div className="jumbotron">
 				<h1 className="display-4">Employee Directory</h1>
 				<p>
-					(Click on arrow icon next to name, or enter a name (or part of a name)
-					to sort the list by name order.)
+					(Click on arrow icon next to name to sort the list by name order.)
 				</p>
 			</div>
 
