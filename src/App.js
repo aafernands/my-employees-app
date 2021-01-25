@@ -14,7 +14,8 @@ function App() {
 	const [sortOrder, setSortOrder] = useState("asc");
 
 	const handleSearchChange = (event) => {
-		const filterText = event.target.value;
+		const filterText = event.target.value.toLowerCase();
+		
 		const filterUser = originalList.filter((user) => {
 			return user.name.toLowerCase().indexOf(filterText) > -1;
 		});
@@ -39,7 +40,7 @@ function App() {
 		fetch("https://randomuser.me/api?results=100")
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(response);
+				console.log("Response here", response);
 
 				const userMap = response.results.map((user) => {
 					return {
